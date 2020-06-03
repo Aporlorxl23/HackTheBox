@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr 30 02:23:29 2020
+Created on Thu Apr 30 02:23:30 2020
 
 @Author: Aporlorxl23
 """
@@ -12,7 +12,5 @@ Agent = {"User-Agent":"Aporlorxl23 HackTheBox Invite Code Script"}
 R = requests.post(Url,headers=Agent)
 Data = R.json()
 Code = list(Data["data"]["code"].split())[0]
-Bytes = Code.encode("ascii")
-Bytes = base64.b64decode(Bytes)
-Code = Bytes.decode("ascii")
-print("[+] Invite Code>> " + Code)
+Code = base64.b64decode(Code.encode())
+print("[+] Invite Code>> " + Code.decode())
